@@ -8,6 +8,4 @@ mycursor = mydb.cursor()
 def index():
     mycursor.execute("SELECT * FROM kanji_dict")
     myresult = mycursor.fetchall()
-    for x in myresult:
-        print(x)
-    return render_template("index.html", nav_index="active")
+    return render_template("index.html", nav_index="active", myresult=myresult)

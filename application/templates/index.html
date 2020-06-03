@@ -2,4 +2,7 @@
 
 {% block content %}
     <h1>Index</h1>
+    {% for result in myresult %}
+        <p>{{result[1]}}</p>
+    {% endfor %}
 {% endblock %}
