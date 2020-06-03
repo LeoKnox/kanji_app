@@ -15,3 +15,7 @@ def index():
     print('-->', end=": ")
     print(kanjinumber)
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
+
+@app.route("/practice")
+def practice():
+    return render_template("practice.html", nav_practice="active")
