@@ -31,3 +31,7 @@ body {
 .active {
     background-color: #000066;
 }
+
+#draw {
+    border: 2px solid black;
+}
