@@ -2,4 +2,23 @@
 
 {% block content %}
     <h1>Pactice</h1>
+    <table>
+        <tr>
+            <th>Kanji</th>
+            <th>Translate</th>
+            <th>Pronuciation</th>
+            <th>Written</th>
+            <th>Grade</th>
+        </tr>
+        {% for kanji in mykanji %}
+        <tr>
+            <td>{{kanji[1]}}</td>
+            <td>{{kanji[3]}}</td>
+            <td>{{kanji[4]}}</td>
+            <td>{{kanji[5]}}</td>
+            <td>{{kanji[6]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <script src="practice.js"></script>
 {% endblock %}

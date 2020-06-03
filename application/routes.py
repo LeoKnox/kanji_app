@@ -12,10 +12,10 @@ def index():
     kanjinumber = mycursor.rowcount
     mycursor.execute("SELECT DISTINCT grade FROM kanji_dict")
     myresult = mycursor.fetchall()
-    print('-->', end=": ")
-    print(kanjinumber)
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
 @app.route("/practice")
 def practice():
-    return render_template("practice.html", nav_practice="active")
+    mycursor.execute("SELECT * FROM kanji_dict")
+    mykanji = mycursor.fetchall()
+    return render_template("practice.html", nav_practice="active", mykanji=mykanji)
