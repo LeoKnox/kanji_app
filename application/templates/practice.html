@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Pactice</h1>
-    <button onclick="nextKanji()">next</button>
+    <button onclick="nextKanji({{mykanji[0][0]}})">next {{mykanji|length}}</button>
     <table>
         <tr>
             <th>Kanji</th>
