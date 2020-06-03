@@ -2,7 +2,11 @@
 
 {% block content %}
     <h1>Index</h1>
-    {% for result in myresult %}
-        <p>{{result[1]}}</p>
-    {% endfor %}
+    <p>Total Kanji Available: {{kanjinumber}}</p>
+    <dl>
+    <dt>Grades available</dt>
+        {% for result in myresult %}
+            <dd>{{result[0]}}</dd>
+        {% endfor %}
+    </dl>
 {% endblock %}
