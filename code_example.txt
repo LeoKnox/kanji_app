@@ -1,0 +1,3 @@
+Jinja add python commands to html. Use | to add python command to jinja data.
+    {{ list_data | length }} find length of list_data
+    {{ string | capitalize }} capitalize first character of string
