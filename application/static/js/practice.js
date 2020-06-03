@@ -23,8 +23,10 @@ function mm(e) {
     var point = svg.createSVGPoint();
     drawStroke(e);
     //document.getElementById("")
+    var offset = document.getElementById('draw').getBoundingClientRect();
     point.x +=(x);
-    point.y +=(y);
+    point.y +=(y - Math.floor(offset.top));
+    console.log(offset.top);
     var polyline = document.getElementById('polypoint');
     polyline.points.appendItem(point);
 }

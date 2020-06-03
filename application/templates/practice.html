@@ -17,15 +17,6 @@
             <th>Grade</th>
         </tr>
         <tr id="kanji_row"></tr>
-        {% for kanji in mykanji %}
-        <tr>
-            <td>{{kanji[1]}}</td>
-            <td>{{kanji[3]}}</td>
-            <td>{{kanji[4]}}</td>
-            <td>{{kanji[5]}}</td>
-            <td>{{kanji[6]}}</td>
-        </tr>
-        {% endfor %}
     </table>
     <script src="{{ url_for('static', filename='js/practice.js') }}"></script>
 {% endblock %}

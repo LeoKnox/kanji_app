@@ -35,3 +35,7 @@ body {
 #draw {
     border: 2px solid black;
 }
+
+#polypoint {
+    position: fixed;
+}
