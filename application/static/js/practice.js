@@ -1,0 +1,3 @@
+function nextKanji() {
+    alert("hello")
+}

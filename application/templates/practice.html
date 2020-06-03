@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Pactice</h1>
+    <button onclick="nextKanji()">next</button>
     <table>
         <tr>
             <th>Kanji</th>
@@ -20,5 +21,5 @@
         </tr>
         {% endfor %}
     </table>
-    <script src="practice.js"></script>
+    <script src="{{ url_for('static', filename='js/practice.js') }}"></script>
 {% endblock %}
