@@ -1,5 +1,6 @@
 from application import app, mydb
 from flask import render_template
+import json
 
 mycursor = mydb.cursor()
 mc = mydb.cursor()
@@ -18,4 +19,5 @@ def index():
 def practice():
     mycursor.execute("SELECT * FROM kanji_dict")
     mykanji = mycursor.fetchall()
-    return render_template("practice.html", nav_practice="active", mykanji=mykanji)
+    jkanji = json.dumps(mykanji)
+    return render_template("practice.html", nav_practice="active", mykanji=jkanji)

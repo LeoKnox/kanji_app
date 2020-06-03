@@ -1,3 +1,4 @@
 function nextKanji(x) {
-    alert("hello " + x)
+    y = Math.floor(Math.random()*x.length);
+    alert("hello " + x[y]);
 }
