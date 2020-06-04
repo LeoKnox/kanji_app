@@ -1,6 +1,7 @@
 function nextKanji(x, y) {
     y++;
     document.getElementById("next_button").value = y;
+    document.getElementById("display").innerHTML = x[y][1];
     document.getElementById("kanji_row").innerHTML = "\
         <td>"+x[y][1]+"</td>\
         <td>"+x[y][3]+"</td>\
@@ -11,6 +12,8 @@ function nextKanji(x, y) {
 
 function randKanji(x) {
     y = Math.floor(Math.random()*x.length);
+    document.getElementById("next_button").value = y;
+    document.getElementById("display").innerHTML = x[y][1];
     document.getElementById("kanji_row").innerHTML = "\
         <td>"+x[y][1]+"</td>\
         <td>"+x[y][3]+"</td>\
