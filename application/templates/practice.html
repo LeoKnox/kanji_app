@@ -6,7 +6,7 @@
         <div class="grid-item">
         <ul class="practice_ul">
             <li><button onclick="randKanji({{mykanji}})">Random</button></li>
-            <li><button onclick="nextKanji()">Next</button></li>
+            <li><button id="next_button" value="{{introkanji[0]-1}}" onclick="nextKanji({{mykanji}}, this.value)">Next</button></li>
             <li><button onclick="clearDrawing()">Clear</button></li>
         </ul>
         </div>
