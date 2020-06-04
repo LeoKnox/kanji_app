@@ -9,7 +9,8 @@ function nextKanji(x) {
 }
 
 function clearDrawing() {
-    document.getElementById("draw").innerHTML = '<polyline id="polypoint" points="" style="fill:none;stroke:#000;stroke-width:6" />';
+    document.getElementById("draw").innerHTML =
+        '<polyline id="polypoint" points="" style="fill:none;stroke:#000;stroke-width:6" />';
 }
 
 function drawStroke(e) {

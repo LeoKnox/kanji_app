@@ -32,6 +32,10 @@ body {
     background-color: #000066;
 }
 
+.practice_ul {
+    list-style-type: none;
+}
+
 #draw {
     border: 2px solid black;
     margin-left: 30px;

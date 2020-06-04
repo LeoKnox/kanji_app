@@ -2,8 +2,10 @@
 
 {% block content %}
     <h1>Pactice</h1>
-    <button onclick="nextKanji({{mykanji}})">Next</button>
-    <button onclick="clearDrawing()">Clear</button>
+    <ul class="practice_ul">
+        <li><button onclick="nextKanji({{mykanji}})">Next</button></li>
+        <li><button onclick="clearDrawing()">Clear</button></li>
+    </ul>
     <div id="tablet" onmousedown="drawStroke(event)" onmouseup="clearCoor()">
     <svg height="200" width="200" id="draw">
         <polyline id="polypoint" points="" style="fill:none;stroke:#000;stroke-width:6" />
