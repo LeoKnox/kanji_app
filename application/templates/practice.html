@@ -2,24 +2,32 @@
 
 {% block content %}
     <h1>Pactice</h1>
-    <ul class="practice_ul">
-        <li><button onclick="nextKanji({{mykanji}})">Next</button></li>
-        <li><button onclick="clearDrawing()">Clear</button></li>
-    </ul>
-    <div id="tablet" onmousedown="drawStroke(event)" onmouseup="clearCoor()">
-    <svg height="200" width="200" id="draw">
-        <polyline id="polypoint" points="" style="fill:none;stroke:#000;stroke-width:6" />
-    </svg>
+    <div class="grid-container">
+        <div class="grid-item">
+        <ul class="practice_ul">
+            <li><button onclick="nextKanji({{mykanji}})">Next</button></li>
+            <li><button onclick="clearDrawing()">Clear</button></li>
+        </ul>
+        </div>
+        <div class="grid-item">
+        <div id="tablet" onmousedown="drawStroke(event)" onmouseup="clearCoor()">
+        <svg height="200" width="200" id="draw">
+            <polyline id="polypoint" points="" style="fill:none;stroke:#000;stroke-width:6" />
+        </svg>
+        </div>
+        </div>
+        <div class="kanji_info">
+        <table>
+            <tr>
+                <th>Kanji</th>
+                <th>Translate</th>
+                <th>Pronuciation</th>
+                <th>Written</th>
+                <th>Grade</th>
+            </tr>
+            <tr id="kanji_row"></tr>
+        </table>
+        </div>
     </div>
-    <table>
-        <tr>
-            <th>Kanji</th>
-            <th>Translate</th>
-            <th>Pronuciation</th>
-            <th>Written</th>
-            <th>Grade</th>
-        </tr>
-        <tr id="kanji_row"></tr>
-    </table>
     <script src="{{ url_for('static', filename='js/practice.js') }}"></script>
 {% endblock %}

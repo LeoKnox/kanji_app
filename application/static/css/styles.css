@@ -32,6 +32,23 @@ body {
     background-color: #000066;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr;
+    grid-gap: 20px;
+}
+
+.grid-item {
+    background-color: #aaaaaa;
+    padding: 15px;
+}
+
+.kanji_info {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    background-color: #aaaaaa;
+}
+
 .practice_ul {
     list-style-type: none;
 }
