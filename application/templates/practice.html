@@ -5,7 +5,8 @@
     <div class="grid-container">
         <div class="grid-item">
         <ul class="practice_ul">
-            <li><button onclick="nextKanji({{mykanji}})">Next</button></li>
+            <li><button onclick="randKanji({{mykanji}})">Random</button></li>
+            <li><button onclick="nextKanji()">Next</button></li>
             <li><button onclick="clearDrawing()">Clear</button></li>
         </ul>
         </div>
@@ -25,7 +26,13 @@
                 <th>Written</th>
                 <th>Grade</th>
             </tr>
-            <tr id="kanji_row"></tr>
+            <tr id="kanji_row">
+                <td>{{introkanji[1]}}</td>
+                <td>{{introkanji[3]}}</td>
+                <td>{{introkanji[4]}}</td>
+                <td>{{introkanji[5]}}</td>
+                <td>{{introkanji[6]}}</td>
+            </tr>
         </table>
         </div>
     </div>

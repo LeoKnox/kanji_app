@@ -20,4 +20,5 @@ def practice():
     mycursor.execute("SELECT * FROM kanji_dict")
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
-    return render_template("practice.html", nav_practice="active", mykanji=jkanji)
+    introkanji = mykanji[0]
+    return render_template("practice.html", nav_practice="active", mykanji=jkanji, introkanji=introkanji)

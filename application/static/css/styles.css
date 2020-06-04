@@ -4,6 +4,16 @@ body {
     margin: 0;
 }
 
+button {
+    width: 100%;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+table {
+    font-size: 2em;
+}
+
 .nav_ul {
     list-style-type: none;
     margin: 0;
@@ -34,7 +44,7 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 3fr 3fr;
+    grid-template-columns: .5fr 3fr 3fr;
     grid-gap: 20px;
 }
 
@@ -47,6 +57,7 @@ body {
     grid-column: 1 / 3;
     grid-row: 2;
     background-color: #aaaaaa;
+    height: 5.4em;
 }
 
 .practice_ul {

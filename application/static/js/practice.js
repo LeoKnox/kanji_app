@@ -1,4 +1,4 @@
-function nextKanji(x) {
+function randKanji(x) {
     y = Math.floor(Math.random()*x.length);
     document.getElementById("kanji_row").innerHTML = "\
         <td>"+x[y][1]+"</td>\
