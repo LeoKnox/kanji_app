@@ -22,3 +22,7 @@ def practice():
     jkanji = json.dumps(mykanji)
     introkanji = mykanji[0]
     return render_template("practice.html", nav_practice="active", mykanji=jkanji, introkanji=introkanji)
+
+@app.route("/quiz")
+def quiz():
+    return render_template("quiz.html", nav_quiz="active")
