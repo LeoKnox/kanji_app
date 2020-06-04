@@ -8,6 +8,7 @@ function nextKanji(x, y) {
         <td>"+x[y][4]+"</td>\
         <td>"+x[y][5]+"</td>\
         <td>"+x[y][6]+"</td>";
+    clearDrawing();
 }
 
 function randKanji(x) {
@@ -20,6 +21,7 @@ function randKanji(x) {
         <td>"+x[y][4]+"</td>\
         <td>"+x[y][5]+"</td>\
         <td>"+x[y][6]+"</td>";
+    clearDrawing();
 }
 
 function clearDrawing() {
