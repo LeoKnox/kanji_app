@@ -8,12 +8,15 @@ function nextKanji(x) {
         <td>"+x[y][6]+"</td>";
 }
 
+function clearDrawing() {
+    document.getElementById("draw").innerHTML = '<polyline id="polypoint" points="" style="fill:none;stroke:#000;stroke-width:6" />';
+}
+
 function drawStroke(e) {
     var x = e.clientX;
     var y = e.clientY;
     var coor = "Coordinates: (" + x + "," + y + ")";
     document.addEventListener("mousemove", mm);
-    //document.getElementById("")
 }
 
 function mm(e) {
@@ -22,11 +25,9 @@ function mm(e) {
     var svg = document.getElementById('draw');
     var point = svg.createSVGPoint();
     drawStroke(e);
-    //document.getElementById("")
     var offset = document.getElementById('draw').getBoundingClientRect();
-    point.x +=(x);
+    point.x +=(x - Math.floor(offset.left));
     point.y +=(y - Math.floor(offset.top));
-    console.log(offset.top);
     var polyline = document.getElementById('polypoint');
     polyline.points.appendItem(point);
 }
