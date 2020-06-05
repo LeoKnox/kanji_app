@@ -3,7 +3,7 @@
 {% block content %}
     <h1>Index</h1>
     <p>Total Kanji Available: {{kanjinumber}}</p>
-    <form action="">
+    <form action="" method="post" name="grades">
     <dl>
     <dt>Grades available</dt>
         {% for result in myresult %}
@@ -13,5 +13,6 @@
             </dd>
         {% endfor %}
     </dl>
+    <input type="submit" value="save">
     </form>
 {% endblock %}
