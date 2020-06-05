@@ -84,3 +84,16 @@ table {
 #tablet {
     display: inline;
 }
+
+#quiz {
+    display: grid;
+    grid-template-areas: "draw info blank"
+}
+
+#quiz_draw {
+    grid-area: draw;
+}
+
+#quiz_info {
+    grid-area: info;
+}

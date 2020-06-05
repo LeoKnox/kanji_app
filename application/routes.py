@@ -30,4 +30,4 @@ def quiz():
     mycursor.execute(sql)
     quiz_kanji = mycursor.fetchone()
     print(quiz_kanji)
-    return render_template("quiz.html", nav_quiz="active")
+    return render_template("quiz.html", nav_quiz="active", quiz_kanji=quiz_kanji)

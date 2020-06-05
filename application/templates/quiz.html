@@ -1,7 +1,16 @@
 {% extends "layout.html" %}
 
+<div>
 {% block content %}
     <h1>Kanji Quiz</h1>
     {% include 'includes/drawing.html' %}
-    <script src="{{ url_for('static', filename='js/practice.js') }}"></script>
+    <div id="quiz">
+    <div id="quiz_draw">
+        <script src="{{ url_for('static', filename='js/practice.js') }}"></script>
+    </div>
+    <div id="quiz_info">
+        <h1>{{ quiz_kanji[3] }}</h1>
+    </div>
+    </div>
 {% endblock %}
+</div>
