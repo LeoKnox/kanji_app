@@ -1,6 +1,6 @@
 from application import app, mydb
 from flask import render_template
-import json
+import json, random, math
 
 mycursor = mydb.cursor()
 mc = mydb.cursor()
@@ -25,4 +25,9 @@ def practice():
 
 @app.route("/quiz")
 def quiz():
+    kanji_id = math.floor(random.random()*240)
+    sql = "SELECT * FROM kanji_dict WHERE idkanji_dict = " + str(kanji_id)
+    mycursor.execute(sql)
+    quiz_kanji = mycursor.fetchone()
+    print(quiz_kanji)
     return render_template("quiz.html", nav_quiz="active")
