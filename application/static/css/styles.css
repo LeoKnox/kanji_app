@@ -102,5 +102,13 @@ table {
 
 #answer {
     grid-column: 3;
-    grid-row: 2
+    grid-row: 2;
+    align-items: flex-start;
+    padding: 0;
+}
+
+#answer p {
+    font-size: 4em;
+    padding: 0;
+    margin: 0;
 }
