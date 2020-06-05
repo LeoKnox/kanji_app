@@ -3,16 +3,15 @@
 {% block content %}
     <h1>Index</h1>
     <p>Total Kanji Available: {{kanjinumber}}</p>
+    <form action="">
     <dl>
     <dt>Grades available</dt>
         {% for result in myresult %}
-            <dd>{{result[0]}}</dd>
+            <dd>
+                <input type="checkbox" id="grade"+{{result[0]}} Value="{{result[0]}}">
+                <label for="grade"+{{result[0]}}>Grade {{result[0]}}</label>
+            </dd>
         {% endfor %}
     </dl>
-    <form action="">
-        {% for result in myresult %}
-            <input type="checkbox" id="grade"+{{result[0]}} Value="{{result[0]}}">
-            <label for="grade"+{{result[0]}}>Grade {{result[0]}}</label>
-        {% endfor %}
     </form>
 {% endblock %}
