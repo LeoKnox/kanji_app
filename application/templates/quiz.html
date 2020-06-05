@@ -3,14 +3,17 @@
 <div>
 {% block content %}
     <h1>Kanji Quiz</h1>
-    {% include 'includes/drawing.html' %}
     <div id="quiz">
     <div id="quiz_draw">
-        <script src="{{ url_for('static', filename='js/practice.js') }}"></script>
+        {% include 'includes/drawing.html' %}
     </div>
-    <div id="quiz_info">
+    <div id="question">
         <h1>{{ quiz_kanji[3] }}</h1>
     </div>
+    <div id="answer">
+        <p>B</p>
     </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/practice.js') }}"></script>
 {% endblock %}
 </div>

@@ -87,13 +87,20 @@ table {
 
 #quiz {
     display: grid;
-    grid-template-areas: "draw info blank"
+    width: 40%;
 }
 
 #quiz_draw {
-    grid-area: draw;
+    grid-column:1 / 2;
+    grid-row: 1 / 3;
 }
 
-#quiz_info {
-    grid-area: info;
+#question {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#answer {
+    grid-column: 3;
+    grid-row: 2
 }
