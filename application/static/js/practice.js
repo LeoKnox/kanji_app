@@ -54,3 +54,7 @@ function clearCoor() {
     document.getElementById('draw').innerHTML += '<polyline id="polypoint" points="" style="fill:none;stroke:#000000;stroke-width:6" />';
     document.removeEventListener('mousemove', mm)
 }
+
+function showKanji(item) {
+    document.getElementById('answer').innerHTML = item;
+}
