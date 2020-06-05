@@ -57,5 +57,7 @@ function clearCoor() {
 
 function showKanji(item) {
     var para = "<p>"+item+"</p>";
-    document.getElementById('answer').innerHTML = para;
+    setTimeout(() => {
+        document.getElementById('answer').innerHTML = para;
+    }, 7000);
 }
