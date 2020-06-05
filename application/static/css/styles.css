@@ -112,3 +112,17 @@ table {
     padding: 0;
     margin: 0;
 }
+
+dl {
+    font-size: 1.4em;
+    background-color: #aaaaaa;
+    width: 40%;
+}
+
+input[type=checkbox] + label {
+    color: darkred;
+}
+
+input[type=checkbox]:checked + label {
+    color: darkblue;
+}
