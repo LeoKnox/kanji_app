@@ -9,4 +9,10 @@
             <dd>{{result[0]}}</dd>
         {% endfor %}
     </dl>
+    <form action="">
+        {% for result in myresult %}
+            <input type="checkbox" id="grade"+{{result[0]}} Value="{{result[0]}}">
+            <label for="grade"+{{result[0]}}>Grade {{result[0]}}</label>
+        {% endfor %}
+    </form>
 {% endblock %}
