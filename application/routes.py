@@ -37,3 +37,7 @@ def quiz():
     quiz_kanji = mycursor.fetchone()
     print(quiz_kanji)
     return render_template("quiz.html", nav_quiz="active", quiz_kanji=quiz_kanji)
+
+@app.route("/about")
+def about():
+    return render_template("about.html", nav_about="active")

@@ -55,9 +55,11 @@ function clearCoor() {
     document.removeEventListener('mousemove', mm)
 }
 
-function showKanji(item) {
+function showKanji(item, time) {
     var para = "<p>"+item+"</p>";
+    console.log("33333");
+    console.log(time);
     setTimeout(() => {
         document.getElementById('answer').innerHTML = para;
-    }, 7000);
+    }, time*1000);
 }
