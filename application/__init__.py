@@ -2,6 +2,7 @@ from flask import Flask
 import mysql.connector
 
 app = Flask(__name__)
+app.secret_key = 'random_string'
 
 mydb = mysql.connector.connect(
     host="localhost",

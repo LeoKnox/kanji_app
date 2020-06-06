@@ -1,5 +1,5 @@
 from application import app, mydb
-from flask import render_template, request
+from flask import render_template, request, session
 import json, random, math
 
 mycursor = mydb.cursor()
@@ -14,11 +14,15 @@ def index():
     mycursor.execute("SELECT DISTINCT grade FROM kanji_dict")
     myresult = mycursor.fetchall()
     if request.method == "POST":
-        print("------> posted")
+        session['grades'] = request.form.getlist('grades')
+        for i in request.form.getlist('grades'):
+            print(i)
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
 @app.route("/practice")
 def practice():
+    text = session.pop('grades', None)
+    print(text)
     mycursor.execute("SELECT * FROM kanji_dict")
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
