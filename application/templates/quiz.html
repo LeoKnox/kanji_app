@@ -22,12 +22,15 @@
     <script type="text/javascript">
         var slider = document.getElementById("myRange");
         var output = document.getElementById("timeLimit");
+        
         output.innerHTML = slider.value;
+        kanji = "{{ quiz_kanji[1] }}";
+        showKanji(kanji, output.innerHTML);
 
         slider.oninput = function() {
             output.innerHTML = this.value;
         }
-        showKanji("{{ quiz_kanji[1] }}",this.value);
+        
     </script>
 {% endblock %}
 </div>
