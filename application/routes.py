@@ -22,7 +22,6 @@ def index():
 @app.route("/practice")
 def practice():
     text = session.pop('grades', None)
-    print(text)
     mycursor.execute("SELECT * FROM kanji_dict")
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
@@ -32,10 +31,11 @@ def practice():
 @app.route("/quiz")
 def quiz():
     kanji_id = math.floor(random.random()*240)
-    grades = session.pop('grades', None)
+    grades = session.pop('grades', [1])
     sql = "SELECT * FROM kanji_dict WHERE idkanji_dict = " + str(kanji_id)
     newsql = "SELECT * FROM kanji_dict WHERE "
     for i in grades:
+        print(i)
         newsql += " grade = " + str(i)
         if i != grades[len(grades)-1]:
             newsql += " OR "

@@ -55,7 +55,7 @@ function clearCoor() {
     document.removeEventListener('mousemove', mm)
 }
 
-function showKanji(item, time) {
+function showKanji(item, time=7) {
     var para = "<p>"+item+"</p>";
     console.log("33333");
     console.log(time);
