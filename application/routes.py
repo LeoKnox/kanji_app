@@ -34,9 +34,11 @@ def quiz():
     kanji_id = math.floor(random.random()*240)
     grades = session.pop('grades', None)
     sql = "SELECT * FROM kanji_dict WHERE idkanji_dict = " + str(kanji_id)
-    newsql = sql
+    newsql = "SELECT * FROM kanji_dict WHERE "
     for i in grades:
-        newsql += " OR " + str(1)
+        newsql += " grade = " + str(i)
+        if i != grades[len(grades)-1]:
+            newsql += " OR "
     print (newsql)
     mycursor.execute(sql)
     quiz_kanji = mycursor.fetchone()
