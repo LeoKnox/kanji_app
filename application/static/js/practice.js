@@ -62,4 +62,11 @@ function showKanji(item, time) {
     setTimeout(() => {
         document.getElementById('answer').innerHTML = para;
     }, time*1000);
+    setTimeout(() => {
+        reloadQuiz();
+    }, time*1000 + 7000);
+}
+
+function reloadQuiz() {
+    window.location.href = document.getElementById('quiz').href;
 }
