@@ -71,6 +71,7 @@ table {
 
 .liButton {
     display: block;
+    background-color: goldenrod;
 }
 
 #display {
@@ -88,9 +89,13 @@ table {
     display: inline;
 }
 
-#quiz {
+#quiz_content {
     display: grid;
     width: 40%;
+    background-color: palegoldenrod;
+    padding: 15px;
+    border-radius: 0 15px 15px 0;
+    margin-bottom: 25px;
 }
 
 #quiz_draw {
@@ -169,4 +174,7 @@ timeslider {
 
 #quiz_button {
     width: 20%;
+    background-color: goldenrod;
+    color: white;
+    padding: 15px;
 }
