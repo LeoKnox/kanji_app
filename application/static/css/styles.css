@@ -163,3 +163,7 @@ timeslider {
     border-radius: 50%;
     background: blue;
 }
+
+#quiz_button {
+    width: 20%;
+}
