@@ -32,10 +32,14 @@ def practice():
 @app.route("/quiz")
 def quiz():
     kanji_id = math.floor(random.random()*240)
+    grades = session.pop('grades', None)
     sql = "SELECT * FROM kanji_dict WHERE idkanji_dict = " + str(kanji_id)
+    newsql = sql
+    for i in grades:
+        newsql += " OR " + str(1)
+    print (newsql)
     mycursor.execute(sql)
     quiz_kanji = mycursor.fetchone()
-    print(quiz_kanji)
     return render_template("quiz.html", nav_quiz="active", quiz_kanji=quiz_kanji)
 
 @app.route("/about")
