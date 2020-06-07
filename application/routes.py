@@ -39,9 +39,9 @@ def quiz():
         newsql += " grade = " + str(i)
         if i != grades[len(grades)-1]:
             newsql += " OR "
-    print (newsql)
     mycursor.execute(sql)
     quiz_kanji = mycursor.fetchone()
+    print (len(quiz_kanji))
     return render_template("quiz.html", nav_quiz="active", quiz_kanji=quiz_kanji)
 
 @app.route("/about")
