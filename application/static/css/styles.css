@@ -5,6 +5,10 @@ body {
     font-family: 'Yu Gothic', sans-serif;
 }
 
+nav {
+    box-shadow: 0 0 25px 0 darkblue;
+}
+
 button {
     width: 100%;
     font-size: 1.5em;
