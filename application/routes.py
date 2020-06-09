@@ -2,7 +2,7 @@ from application import app, mydb
 from flask import render_template, request, session
 import json, random, math
 
-mycursor = mydb.cursor()
+mycursor = mydb.cursor(buffered=True)
 mc = mydb.cursor()
 
 @app.route("/")
@@ -15,13 +15,13 @@ def index():
     myresult = mycursor.fetchall()
     if request.method == "POST":
         session['grades'] = request.form.getlist('grades')
-        for i in request.form.getlist('grades'):
-            print(i)
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
 @app.route("/practice")
 def practice():
-    text = session.pop('grades', None)
+    grades = session.pop('grades', [1])
+    x = "SELECT * FROM kanji_dict WHERE grade = (%s)" % grades
+    print (x)
     mycursor.execute("SELECT * FROM kanji_dict")
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
@@ -35,13 +35,12 @@ def quiz():
     sql = "SELECT * FROM kanji_dict WHERE idkanji_dict = " + str(kanji_id)
     newsql = "SELECT * FROM kanji_dict WHERE "
     for i in grades:
-        print(i)
         newsql += " grade = " + str(i)
         if i != grades[len(grades)-1]:
             newsql += " OR "
-    mycursor.execute(sql)
+    print(newsql)
+    mycursor.execute(newsql)
     quiz_kanji = mycursor.fetchone()
-    print (len(quiz_kanji))
     return render_template("quiz.html", nav_quiz="active", quiz_kanji=quiz_kanji)
 
 @app.route("/about")
