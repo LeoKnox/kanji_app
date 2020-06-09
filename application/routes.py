@@ -30,16 +30,20 @@ def practice():
 
 @app.route("/quiz")
 def quiz():
-    kanji_id = math.floor(random.random()*240)
     grades = session.pop('grades', [1])
-    sql = "SELECT * FROM kanji_dict WHERE idkanji_dict = " + str(kanji_id)
     newsql = "SELECT * FROM kanji_dict WHERE "
     for i in grades:
         newsql += " grade = " + str(i)
         if i != grades[len(grades)-1]:
             newsql += " OR "
-    print(newsql)
-    mycursor.execute(newsql)
+    x = newsql.replace("*", "count(*)")
+    print(x)
+    mycursor.execute(x)
+    #mycursor.execute(newsql)
+    quiz_kanji = mycursor.fetchone()
+    kanji_id = math.floor(random.random()*quiz_kanji[0])
+    sql = "SELECT * FROM kanji_dict WHERE idkanji_dict = " + str(kanji_id)
+    mycursor.execute(sql)
     quiz_kanji = mycursor.fetchone()
     return render_template("quiz.html", nav_quiz="active", quiz_kanji=quiz_kanji)
 
