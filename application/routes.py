@@ -37,6 +37,7 @@ def quiz():
         if i != grades[len(grades)-1]:
             newsql += " OR "
     x = newsql.replace("*", "count(*)")
+    print(x)
     mycursor.execute(x)
     quiz_kanji = mycursor.fetchone()
     kanji_id = math.floor(random.random()*quiz_kanji[0])
@@ -48,3 +49,7 @@ def quiz():
 @app.route("/about")
 def about():
     return render_template("about.html", nav_about="active")
+
+@app.route("/test")
+def test():
+    return render_template("test.html")
