@@ -54,5 +54,7 @@ def about():
 def test():
     x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
     mycursor.execute(x)
-    test_data = list(mycursor.fetchall())
-    return render_template("test.html", test_data=test_data)
+    test_data = mycursor.fetchall()
+    t = sum(i[1] for i in test_data)
+    print(t)
+    return render_template("test.html", test_data=test_data, t=t)
