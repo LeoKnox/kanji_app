@@ -37,9 +37,7 @@ def quiz():
         if i != grades[len(grades)-1]:
             newsql += " OR "
     x = newsql.replace("*", "count(*)")
-    print(x)
     mycursor.execute(x)
-    #mycursor.execute(newsql)
     quiz_kanji = mycursor.fetchone()
     kanji_id = math.floor(random.random()*quiz_kanji[0])
     sql = "SELECT * FROM kanji_dict WHERE idkanji_dict = " + str(kanji_id)
