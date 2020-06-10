@@ -8,6 +8,7 @@ mc = mydb.cursor()
 @app.route("/")
 @app.route("/index", methods=["GET", "POST"])
 def index():
+    '''
     mycursor.execute("SELECT * FROM kanji_dict")
     mycursor.fetchall()
     kanjinumber = mycursor.rowcount
@@ -15,6 +16,11 @@ def index():
     myresult = mycursor.fetchall()
     if request.method == "POST":
         session['grades'] = request.form.getlist('grades')
+    '''
+    x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
+    mycursor.execute(x)
+    myresult = mycursor.fetchall()
+    kanjinumber = sum(i[1] for i in myresult)
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
 @app.route("/practice")
