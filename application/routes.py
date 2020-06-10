@@ -52,8 +52,7 @@ def about():
 
 @app.route("/test")
 def test():
-    x = "SELECT DISTINCT grade, COUNT(*) FROM kanji_app_db.kanji_dict GROUP BY grade"
+    x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
     mycursor.execute(x)
-    test_data = mycursor.fetchall()
-    print(test_data)
-    return render_template("test.html")
+    test_data = list(mycursor.fetchall())
+    return render_template("test.html", test_data=test_data)

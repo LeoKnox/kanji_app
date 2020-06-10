@@ -1,1 +1,5 @@
 <p>MySql database tests</p>
+
+{% for t in test_data %}
+    <p>{{t[0]}}:{{t[1]}}</p>
+{% endfor %}
