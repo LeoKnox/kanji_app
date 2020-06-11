@@ -53,7 +53,11 @@ def about():
 @app.route("/test")
 def test():
     x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
-    grades = session.pop('grades', 1)
+    if 'grades' in session:
+        grades = session['grades']
+    else:
+        grades=1
+    print(grades)
     test_list = [1,2]
     #y = "SELECT * FROM kanji_app_db.kanji_dict WHERE grade=%s ORDER BY RAND() LIMIT 1;" % test_list
     b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
