@@ -53,8 +53,8 @@ def about():
 @app.route("/test")
 def test():
     x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
-    #test_list = session.pop('grades', 1)
-    test_list = [1, 2]
+    grades = session.pop('grades', 1)
+    test_list = [1,2]
     #y = "SELECT * FROM kanji_app_db.kanji_dict WHERE grade=%s ORDER BY RAND() LIMIT 1;" % test_list
     b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     for i in test_list:
@@ -64,4 +64,4 @@ def test():
     mycursor.execute(b)
     test_data = mycursor.fetchall()
     #t = sum(i[1] for i in test_data)
-    return render_template("test.html", test_data=test_data)
+    return render_template("test.html", test_data=test_data, grades = grades )
