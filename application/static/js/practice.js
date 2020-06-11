@@ -63,10 +63,13 @@ function showKanji(item, time=7) {
         document.getElementById('answer').innerHTML = para;
     }, time*1000);
     setTimeout(() => {
-        reloadQuiz();
+        reloadQuiz(time);
     }, time*1000 + 7000);
 }
 
-function reloadQuiz() {
-    window.location.href = document.getElementById('quiz').href;
+function reloadQuiz(timer=7) {
+    x = document.getElementById('quiz').href;
+    x += "/" + timer;
+    //window.location.href = document.getElementById('quiz').href;
+    window.location.href = x;
 }

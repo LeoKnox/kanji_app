@@ -35,7 +35,8 @@ def practice():
     return render_template("practice.html", nav_practice="active", mykanji=jkanji, introkanji=introkanji)
 
 @app.route("/quiz")
-def quiz():
+@app.route("/quiz/<timer>")
+def quiz(timer=7):
     if 'grades' in session:
         grades = session['grades']
     else:
@@ -53,7 +54,7 @@ def quiz():
     sql = "SELECT * FROM kanji_dict WHERE idkanji_dict = " + str(kanji_id)
     mycursor.execute(sql)
     quiz_kanji = mycursor.fetchone()
-    return render_template("quiz.html", nav_quiz="active", quiz_kanji=quiz_kanji)
+    return render_template("quiz.html", nav_quiz="active", quiz_kanji=quiz_kanji, timer=timer)
 
 @app.route("/about")
 def about():
