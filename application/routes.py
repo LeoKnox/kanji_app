@@ -20,10 +20,16 @@ def index():
 
 @app.route("/practice")
 def practice():
-    grades = session.pop('grades', [1])
-    x = "SELECT * FROM kanji_dict WHERE grade = (%s)" % grades
-    print (x)
-    mycursor.execute("SELECT * FROM kanji_dict")
+    if 'grades' in session:
+        grades = session['grades']
+    else:
+        grades=1
+    b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
+    for i in grades:
+        b += "grade = " + str(i) + " OR "
+    b = b[:-3]
+    #mycursor.execute("SELECT * FROM kanji_dict")
+    mycursor.execute(b)
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
     introkanji = mykanji[0]
