@@ -63,6 +63,7 @@ function showKanji(item, time=7) {
         document.getElementById('answer').innerHTML = para;
     }, time*1000);
     setTimeout(() => {
+        time = document.getElementById('myRange').value;
         reloadQuiz(time);
     }, time*1000 + 7000);
 }
