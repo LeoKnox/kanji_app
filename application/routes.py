@@ -51,15 +51,16 @@ def test():
     x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
     #test_list = session.pop('grades', 1)
     test_list = [1, 2]
-    y = "SELECT * FROM kanji_app_db.kanji_dict WHERE grade=%s ORDER BY RAND() LIMIT 1;" % test_list
+    #y = "SELECT * FROM kanji_app_db.kanji_dict WHERE grade=%s ORDER BY RAND() LIMIT 1;" % test_list
     b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     for i in test_list:
         b += "grade = " + str(i) + " OR "
     b = b[:-3]
     b += "ORDER BY RAND() LIMIT 1;"
     print(b)
-    b = str("SELECT * FROM kanji_app_db.kanji_dict WHERE grade=1 OR grade = 2 ORDER BY RAND() LIMIT 1;")
-    mycursor.execute(x)
+    #b = "SELECT * FROM kanji_app_db.kanji_dict WHERE grade=1 OR grade = 2 ORDER BY RAND() LIMIT 1;"
+    mycursor.execute(b)
     test_data = mycursor.fetchall()
-    t = sum(i[1] for i in test_data)
+    print(test_data)
+    #t = sum(i[1] for i in test_data)
     return render_template("test.html", test_data=test_data)
