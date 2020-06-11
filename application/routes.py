@@ -12,6 +12,10 @@ def index():
     mycursor.execute(x)
     myresult = mycursor.fetchall()
     kanjinumber = sum(i[1] for i in myresult)
+    if request.method == 'POST':
+        session['grades'] = request.form.getlist('grades')
+        print("************")
+        print(request.form.getlist('grades'))
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
 @app.route("/practice")
