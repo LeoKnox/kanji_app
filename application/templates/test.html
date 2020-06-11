@@ -1,1 +1,8 @@
 <p>MySql database tests</p>
+
+<p>
+{% for x in test_data %}
+    {{x[1]}} - {{x[3]}} - {{x[6]}}<br/>
+    {{x}}
+{% endfor %}
+</p>

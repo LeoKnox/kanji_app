@@ -57,10 +57,7 @@ def test():
         b += "grade = " + str(i) + " OR "
     b = b[:-3]
     b += "ORDER BY RAND() LIMIT 1;"
-    print(b)
-    #b = "SELECT * FROM kanji_app_db.kanji_dict WHERE grade=1 OR grade = 2 ORDER BY RAND() LIMIT 1;"
     mycursor.execute(b)
     test_data = mycursor.fetchall()
-    print(test_data)
     #t = sum(i[1] for i in test_data)
     return render_template("test.html", test_data=test_data)
