@@ -8,15 +8,6 @@ mc = mydb.cursor()
 @app.route("/")
 @app.route("/index", methods=["GET", "POST"])
 def index():
-    '''
-    mycursor.execute("SELECT * FROM kanji_dict")
-    mycursor.fetchall()
-    kanjinumber = mycursor.rowcount
-    mycursor.execute("SELECT DISTINCT grade FROM kanji_dict")
-    myresult = mycursor.fetchall()
-    if request.method == "POST":
-        session['grades'] = request.form.getlist('grades')
-    '''
     x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
     mycursor.execute(x)
     myresult = mycursor.fetchall()
@@ -43,7 +34,6 @@ def quiz():
         if i != grades[len(grades)-1]:
             newsql += " OR "
     x = newsql.replace("*", "count(*)")
-    print(x)
     mycursor.execute(x)
     quiz_kanji = mycursor.fetchone()
     kanji_id = math.floor(random.random()*quiz_kanji[0])
@@ -59,8 +49,16 @@ def about():
 @app.route("/test")
 def test():
     x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
-    mycursor.execute(x)
+    #test_list = session.pop('grades', 1)
+    test_list = [1, 2]
+    y = "SELECT * FROM kanji_app_db.kanji_dict WHERE grade=%s ORDER BY RAND() LIMIT 1;" % test_list
+    b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
+    for i in test_list:
+        b += "grade = " + str(i) + " OR "
+    b = b[:-3]
+    b += "ORDER BY RAND() LIMIT 1;"
+    print(b)
+    mycursor.execute(b)
     test_data = mycursor.fetchall()
     t = sum(i[1] for i in test_data)
-    print(t)
-    return render_template("test.html", test_data=test_data, t=t)
+    return render_template("test.html", test_data=test_data)
