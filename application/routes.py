@@ -1,5 +1,5 @@
 from application import app, mydb
-from flask import render_template, request, session
+from flask import render_template, redirect, request, session
 import json, random, math
 
 mycursor = mydb.cursor(buffered=True)
@@ -64,4 +64,8 @@ def test():
     mycursor.execute(b)
     test_data = mycursor.fetchall()
     #t = sum(i[1] for i in test_data)
-    return render_template("test.html", test_data=test_data, grades = grades )
+    return render_template("test.html", test_data=test_data, grades = grades)
+
+@app.route("/linked")
+def linked():
+    return redirect("/test")
