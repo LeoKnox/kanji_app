@@ -23,12 +23,11 @@ def practice():
     if 'grades' in session:
         grades = session['grades']
     else:
-        grades=1
+        grades=[1]
     b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     for i in grades:
         b += "grade = " + str(i) + " OR "
     b = b[:-3]
-    #mycursor.execute("SELECT * FROM kanji_dict")
     mycursor.execute(b)
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
@@ -37,7 +36,11 @@ def practice():
 
 @app.route("/quiz")
 def quiz():
-    grades = session.pop('grades', [1])
+    if 'grades' in session:
+        grades = session['grades']
+    else:
+        grades=[1]
+    print(grades)
     newsql = "SELECT * FROM kanji_dict WHERE "
     for i in grades:
         newsql += " grade = " + str(i)

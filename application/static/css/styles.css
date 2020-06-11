@@ -59,12 +59,16 @@ table {
     border-radius: 0 15px 0 0;
 }
 
+#nav_practice {
+    border-radius: 0;
+}
+
 .kanji_info {
     grid-column: 1 / 3;
     grid-row: 2;
     background-color: palegoldenrod;
     padding: 15px;
-    border-radius: 0 0 15px 15px;
+    border-radius: 0 0 15px 0;
     font-size: .8em;
 }
 
