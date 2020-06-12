@@ -1,9 +1,9 @@
-function nextKanji(x, y) {
+async function nextKanji(x, y) {
     y++;
-    if (y == x.length) {
-        y = 1;
+    if (await y == x.length) {
+        y = 0;
     };
-    alert(y);
+    console.log(y);
     console.log("888888888");
     document.getElementById("next_button").value = y;
     document.getElementById("display").innerHTML = x[y][1];
