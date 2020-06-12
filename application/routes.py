@@ -14,8 +14,6 @@ def index():
     kanjinumber = sum(i[1] for i in myresult)
     if request.method == 'POST':
         session['grades'] = request.form.getlist('grades')
-        print("************")
-        print(request.form.getlist('grades'))
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
 @app.route("/practice")
@@ -67,9 +65,6 @@ def test():
         grades = session['grades']
     else:
         grades=1
-    print(grades)
-    test_list = [1,2]
-    #y = "SELECT * FROM kanji_app_db.kanji_dict WHERE grade=%s ORDER BY RAND() LIMIT 1;" % test_list
     b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     for i in test_list:
         b += "grade = " + str(i) + " OR "
@@ -77,7 +72,6 @@ def test():
     b += "ORDER BY RAND() LIMIT 1;"
     mycursor.execute(b)
     test_data = mycursor.fetchall()
-    #t = sum(i[1] for i in test_data)
     return render_template("test.html", test_data=test_data, grades = grades)
 
 @app.route("/linked")
