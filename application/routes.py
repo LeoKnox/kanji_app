@@ -64,7 +64,7 @@ def test():
     if 'grades' in session:
         grades = session['grades']
     else:
-        grades=1
+        grades=[1]
     b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     for i in test_list:
         b += "grade = " + str(i) + " OR "
