@@ -1,5 +1,10 @@
 function nextKanji(x, y) {
     y++;
+    console.log(y);
+    if (y == x.length) {
+        y = 1;
+    };
+    console.log("888888888");
     document.getElementById("next_button").value = y;
     document.getElementById("display").innerHTML = x[y][1];
     document.getElementById("kanji_row").innerHTML = "\
