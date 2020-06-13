@@ -139,6 +139,11 @@ table {
     margin: 0;
 }
 
+dt {
+    font-size: 1.2em;
+    color: darkblue;
+}
+
 dl {
     font-size: 1.4em;
     background-color: palegoldenrod;
