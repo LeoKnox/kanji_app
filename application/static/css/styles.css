@@ -154,6 +154,7 @@ input[type=checkbox] + label {
 
 input[type=checkbox]:checked + label {
     color: darkblue;
+    padding: 5px 10px;
     background-color: rgb(214, 209, 152);
 }
 
