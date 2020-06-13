@@ -3,8 +3,6 @@ async function nextKanji(x, y) {
     if (await y == x.length) {
         y = 0;
     };
-    console.log(y);
-    console.log("888888888");
     document.getElementById("next_button").value = y;
     document.getElementById("display").innerHTML = x[y][1];
     document.getElementById("kanji_row").innerHTML = "\
@@ -62,8 +60,6 @@ function clearCoor() {
 
 function showKanji(item, time=7) {
     var para = "<p>"+item+"</p>";
-    console.log("33333");
-    console.log(time);
     setTimeout(() => {
         document.getElementById('answer').innerHTML = para;
     }, time*1000);
@@ -76,6 +72,5 @@ function showKanji(item, time=7) {
 function reloadQuiz(timer=7) {
     x = document.getElementById('quiz').href;
     x += "/" + timer;
-    //window.location.href = document.getElementById('quiz').href;
     window.location.href = x;
 }
