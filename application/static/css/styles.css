@@ -142,6 +142,8 @@ table {
 dt {
     font-size: 1.2em;
     color: darkblue;
+    padding-left: 4px;
+    font-weight: bold;
 }
 
 dl {
