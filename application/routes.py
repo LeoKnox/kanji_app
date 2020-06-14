@@ -12,7 +12,6 @@ def index():
     mycursor.execute(x)
     myresult = mycursor.fetchall()
     kanjinumber = sum(i[1] for i in myresult)
-    print(request.form.getlist('grades'))
     if request.method == 'POST':
         session['grades'] = request.form.getlist('grades')
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
@@ -36,17 +35,18 @@ def practice():
 @app.route("/quiz")
 @app.route("/quiz/<timer>")
 def quiz(timer=7):
-    if 'grades' in session:
+    if 'grades' in session and session['grades']!=[]:
         grades = session['grades']
     else:
         grades=[1]
-    print(grades)
+    print (grades)
     newsql = "SELECT * FROM kanji_dict WHERE "
     for i in grades:
         newsql += " grade = " + str(i)
         if i != grades[len(grades)-1]:
             newsql += " OR "
     x = newsql.replace("*", "count(*)")
+    print(x)
     mycursor.execute(x)
     quiz_kanji = mycursor.fetchone()
     kanji_id = math.floor(random.random()*quiz_kanji[0])
