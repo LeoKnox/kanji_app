@@ -7,7 +7,7 @@
     <dt>Grades available</dt>
         {% for result in myresult %}
             <dd>
-                <input type="checkbox" id="grade{{result[0]}}" name="grades" Value="{{result[0]}}, 'True'">
+                <input type="checkbox" id="grade{{result[0]}}" name="grades" Value="{{result[0]}}">
                 <label for="grade{{result[0]}}">Grade {{result[0]}} - Kanji {{result[1]}}</label>
             </dd>
         {% endfor %}
