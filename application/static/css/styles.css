@@ -3,6 +3,11 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Yu Gothic', sans-serif;
+    background: radial-gradient(circle at top left, lightblue, lightblue, darkblue 110%);
+}
+
+html {
+    min-height: 100%;
 }
 
 nav {
@@ -34,6 +39,7 @@ table {
 .nav_li a {
     display: block;
     color: gold;
+    font-weight: bold;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -239,4 +245,13 @@ h1 {
 
 #grade1:hover {
     color: green;
+}
+
+.about_dt {
+    font-size: .9em;
+}
+
+.about_dd {
+    font-size: .8em;
+    color: blue;
 }
