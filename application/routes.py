@@ -61,6 +61,8 @@ def about():
 
 @app.route("/remember_kanji")
 def remember_kanji():
+    print("********")
+    print("remember kanji")
     return render_template("about.html", nav_about="active")
 
 @app.route("/test")

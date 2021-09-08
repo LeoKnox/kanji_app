@@ -91,6 +91,10 @@ table {
     display: block;
 }
 
+.liButton a {
+    text-decoration: none;
+}
+
 .liButton button {
     background-color: goldenrod;
     color: white;
