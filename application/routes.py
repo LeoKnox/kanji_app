@@ -65,6 +65,12 @@ def remember_kanji():
     print("remember kanji")
     return render_template("about.html", nav_about="active")
 
+@app.route("/my_kanji")
+def my_kanji():
+    print("!!!!!!!")
+    print("my kanji")
+    return render_template("my_kanji.html", nav_about="my_kanji")
+
 @app.route("/test")
 def test():
     x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
