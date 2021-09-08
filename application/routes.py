@@ -59,6 +59,10 @@ def quiz(timer=7):
 def about():
     return render_template("about.html", nav_about="active")
 
+@app.route("/remember_kanji")
+def remember_kanji():
+    return render_template("about.html", nav_about="active")
+
 @app.route("/test")
 def test():
     x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
