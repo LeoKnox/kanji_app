@@ -91,7 +91,8 @@ table {
     display: block;
 }
 
-.liButton a {
+.practice_a, .practice_a:visited{
+    color: white;
     text-decoration: none;
 }
 
