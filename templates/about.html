@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>About</h1>
+    <div class="content">
+        <dl>
+            <dt class="about_dt">Goal</dt>
+            <dd class="about_dd">My goal in this was to create Kanji practice app. Other version I had tried didn't really
+                work as I wanted. I wanted a practice page where I could practice the kanji and learn the
+                definition and hiragana. Another feature I wanted was to be able to practice the same Kanji
+                over and over. Then quiz you on Kanji to practice what you have learned. Though other apps
+                had some of these features and many more not all of them were brought together the way I wanted.
+                The most important this for me being able to practice multiple times some apps would move you to
+                the next Kanji.
+            </dd>
+            <br/>
+            <dt class="about_dt">Execution</dt>
+            <dd class="about_dd">
+                My intention however is not create a competing app, maybe in time as I am continually adding to
+                it. My main purpose was working creating a web app that used both frontend and backend Technologies.
+                I used Mysql as the database. The datais pretty stable and sequential in nature and no lists. So
+                instead of using MongoDB I chose to take advantage of using MySql.
+            </dd>
+            <br/>
+            <dd class="about_dd">
+                Working on the frontend I did have to incorporate a lot of Javascript. I used a slider bar to change
+                the speed at which the Kanji. This required a script to change the Kanji after the time expired but
+                also another to update that time when the slider changed. The practice drawing was very involved as
+                well. I used svg to do the drawing. That required recording the points and plotting them on the page.
+                Also you needed to break the drawing and start again when you clicked with the mouse. Finally I needed
+                to clear the drawing and maintain the information so it could be drawn again. I used some css grid
+                templates to layout the practice page which had more parts to it.
+            </dd>
+            <br/>
+            <dt class="about_dt">Technologies</dt>
+            <dd class="about_dd">
+                Backend technologies were MySql for the Database. Python and Flask for webserver. Frontend was normal
+                html, css and javascript. I used MySql workbench to develop searches before implementing them in Flask.
+                I also used Json to transport data to the webpage.
+            </dd>
+            <dd>
+                Attribution to Wikipedia for providing Kanji information.
+            </dd>
+        </dl>
+        </div>
+{% endblock %}
