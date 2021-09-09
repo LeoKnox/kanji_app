@@ -68,7 +68,8 @@ def remember_kanji():
 @app.route("/my_kanji")
 def my_kanji():
     kanji_id = 1
-    sql = "SELECT * FROM my_kanji WHERE id = " + str(kanji_id)
+    sql = "SELECT my_kanji.id, kanji_dict.meaning, kanji_dict.kanji, kanji_dict.reading, kanji_dict.grade FROM my_kanji INNER JOIN kanji_dict ON my_kanji.kanji_dict_id=kanji_dict.idKanji_dict WHERE id = " + str(kanji_id)
+    #sql = "SELECT * FROM my_kanji WHERE id = " + str(kanji_id)
     mycursor.execute(sql)
     my_kanji = mycursor.fetchall()
     print("!!!!!!!")

@@ -1,4 +1,7 @@
 <h1>Yeah My Kanji Works</h1>
 {% for kanji in my_kanji %}
-    <p>Kanji number: {{ kanji[1] }}</p>
+    <p>Kanji: {{ kanji[2] }}</p>
+    <p>Kanji Meaning:{{ kanji[1] }}</p>
+    <p>Kanji Reading:{{ kanji[3] }}</p>
+    <p>Kanji Grade:{{ kanji[4] }}</p>
 {% endfor %}
