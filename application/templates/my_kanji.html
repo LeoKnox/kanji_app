@@ -3,13 +3,13 @@
 {% block content %}
     <h1>Yeah My Kanji Works</h1>
     <table>
-    {% for kanji in my_kanji %}
         <tr>
             <th>Kanji</th>
             <th>Kanji Meaning</th>
             <th>Kanji Reading</th>
             <th>Kanji Grade</th>
         </tr>
+    {% for kanji in my_kanji %}
         <tr>
             <td>{{ kanji[2] }}</td>
             <td>{{ kanji[1] }}</td>
