@@ -69,9 +69,11 @@ def remember_kanji():
 def my_kanji():
     kanji_id = 1
     sql = "SELECT * FROM my_kanji WHERE id = " + str(kanji_id)
+    mycursor.execute(sql)
+    my_kanji = mycursor.fetchall()
     print("!!!!!!!")
-    print(sql)
-    return render_template("my_kanji.html", nav_about="my_kanji")
+    print(my_kanji)
+    return render_template("my_kanji.html", nav_about="my_kanji", my_kanji = my_kanji)
 
 @app.route("/test")
 def test():
