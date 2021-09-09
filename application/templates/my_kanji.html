@@ -1,7 +1,21 @@
-<h1>Yeah My Kanji Works</h1>
-{% for kanji in my_kanji %}
-    <p>Kanji: {{ kanji[2] }}</p>
-    <p>Kanji Meaning:{{ kanji[1] }}</p>
-    <p>Kanji Reading:{{ kanji[3] }}</p>
-    <p>Kanji Grade:{{ kanji[4] }}</p>
-{% endfor %}
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Yeah My Kanji Works</h1>
+    <table>
+    {% for kanji in my_kanji %}
+        <tr>
+            <th>Kanji</th>
+            <th>Kanji Meaning</th>
+            <th>Kanji Reading</th>
+            <th>Kanji Grade</th>
+        </tr>
+        <tr>
+            <td>{{ kanji[2] }}</td>
+            <td>{{ kanji[1] }}</td>
+            <td>{{ kanji[3] }}</td>
+            <td>{{ kanji[4] }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
