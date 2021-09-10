@@ -16,7 +16,7 @@ def index():
         session['grades'] = request.form.getlist('grades')
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
-@app.route("/practice")
+@app.route("/practice",methods=["GET"])
 def practice():
     if 'grades' in session:
         grades = session['grades']
@@ -31,6 +31,11 @@ def practice():
     jkanji = json.dumps(mykanji)
     introkanji = mykanji[0]
     return render_template("practice.html", nav_practice="active", mykanji=jkanji, introkanji=introkanji)
+
+@app.route("/practice", methods=["POST"])
+def add_kanji_to_db():
+    print(request.form["kanji_number"])
+    return redirect("/practice")
 
 @app.route("/quiz")
 @app.route("/quiz/<timer>")
