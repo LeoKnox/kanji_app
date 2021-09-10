@@ -14,6 +14,7 @@
             <li class="liButton"><button onclick="clearDrawing()">Clear</button></li>
         </ul>
         </div>
+        <p>{{session['practice_kanji_id']}} ---</p>
         <div class="grid-item">
         {% include 'includes/drawing.html' %}
         <label id="display">{{introkanji[1]}}</label>
