@@ -36,7 +36,7 @@ def practice():
 def add_kanji_to_db():
     #print(session["kanji_number"])
     print(request.form["kanji_number"])
-    return redirect("/my_kanji")
+    return redirect("/practice")
 
 @app.route("/quiz")
 @app.route("/quiz/<timer>")
