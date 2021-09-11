@@ -17,8 +17,7 @@ async function nextKanji(x, y) {
 function randKanji(x) {
     y = Math.floor(Math.random()*x.length);
     document.getElementById("next_button").value = y;
-    document.getElementById("kanji_number").value = "3333"; //x[y][0];
-    sessionStorage.setItem("kanji_number", 333);
+    document.getElementById("kanji_number").value = ""+x[y][1];
     document.getElementById("display").innerHTML = x[y][1];
     document.getElementById("kanji_row").innerHTML = "\
         <td>"+x[y][1]+"</td>\

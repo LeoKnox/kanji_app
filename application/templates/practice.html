@@ -6,7 +6,7 @@
         <div id="nav_practice" class="grid-item">
         <ul class="practice_ul">
             <form action="/practice" method="POST">
-                <input type="hidden" id="kanji_number" name="kanji_number" value="{{introkanji[0]}}">
+                <input type="hidden" id="kanji_number" name="kanji_number" value="{{introkanji[1]}}">
                 <li class="liButton"><a href="{{ url_for('remember_kanji')}}" class="practice_a"><button id="remember_kanji">Remember</button></a></li>
             </form>
             <li class="liButton"><button onclick="randKanji({{mykanji}})">Random</button></li>
