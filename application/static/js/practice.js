@@ -17,6 +17,7 @@ async function nextKanji(x, y) {
 function randKanji(x) {
     y = Math.floor(Math.random()*x.length);
     document.getElementById("next_button").value = y;
+    document.getElementById("kanji_number").value = x[y][7];
     document.getElementById("display").innerHTML = x[y][1];
     document.getElementById("kanji_row").innerHTML = "\
         <td>"+x[y][1]+"</td>\
@@ -24,6 +25,7 @@ function randKanji(x) {
         <td>"+x[y][4]+"</td>\
         <td>"+x[y][5]+"</td>\
         <td>"+x[y][6]+"</td>";
+    console.log("x[y][0]");
     clearDrawing();
     sessionStorage.setItem('practice_kanji_id', "x[y][0]")
 }
