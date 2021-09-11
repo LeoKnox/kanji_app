@@ -25,7 +25,7 @@ function randKanji(x) {
         <td>"+x[y][4]+"</td>\
         <td>"+x[y][5]+"</td>\
         <td>"+x[y][6]+"</td>";
-    console.log(x[y][0]+"");
+    console.log(x[y][0]);
     clearDrawing();
     sessionStorage.setItem('practice_kanji_id', "x[y][0]")
 }
