@@ -69,6 +69,8 @@ def about():
 def remember_kanji():
     print("********")
     print(form.remember_kanji)
+    mysql = connectToMySQL("first_flask")
+    query = "INSERT INTO my_kanji (kanji_dict_id) VALUES (%(mk)i;"
     return render_template("about.html", nav_about="active")
 
 @app.route("/my_kanji")
