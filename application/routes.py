@@ -68,7 +68,7 @@ def about():
 @app.route("/remember_kanji")
 def remember_kanji():
     print("********")
-    print("remember kanji")
+    print(form.remember_kanji)
     return render_template("about.html", nav_about="active")
 
 @app.route("/my_kanji")
