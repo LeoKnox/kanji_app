@@ -72,7 +72,7 @@ def remember_kanji():
     mysql = connectToMySQL("first_flask")
     query = "INSERT INTO my_kanji (kanji_dict_id) VALUES (%(mk)i);"
     data = {
-        "mk": request.form["my_kanji_id"]
+        "mk": request.form["remember_kanji"]
     }
     my_kanji = mysql.query_db(query, data)
     return render_template("about.html", nav_about="active")
