@@ -1,6 +1,6 @@
 from application import app, mydb
 from flask import render_template, redirect, request, session
-#from flask_mysqldb import MySQL
+from flask_mysqldb import MySQL
 import json, random, math
 
 mycursor = mydb.cursor(buffered=True)
@@ -70,7 +70,7 @@ def about():
 def remember_kanji():
     print("********")
     print(request.form["kanji_number"])
-    #mysql = connectToMySQL("first_flask")
+    mysql = connectToMySQL("first_flask")
     query = "INSERT INTO my_kanji (kanji_dict_id) VALUES (%(mk)d);"
     data = {
         "mk": request.form["kanji_number"]
