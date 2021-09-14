@@ -75,10 +75,9 @@ def remember_kanji():
         """
             INSERT INTO
                 my_kanji (
-                    kanji_dict_id (
-                        kanji_number
-            VALUES (%d))""", (kn)
-        )
+                    kd
+                )
+            VALUES (%d)""", (kn))
     #mysql = connectToMySQL("first_flask")
     #query = "INSERT INTO my_kanji (kanji_dict_id) VALUES (%(mk)d);"
     #data = {
