@@ -77,9 +77,8 @@ def remember_kanji():
                 my_kanji (
                     kanji_dict_id (
                         kanji_number
-                    )
-            VALUES (%d)""", (kn))
-    )
+            VALUES (%d))""", (kn)
+        )
     #mysql = connectToMySQL("first_flask")
     #query = "INSERT INTO my_kanji (kanji_dict_id) VALUES (%(mk)d);"
     #data = {
@@ -90,8 +89,8 @@ def remember_kanji():
 
 @app.route("/my_kanji")
 def my_kanji():
-    
     sql = "SELECT my_kanji.id, kanji_dict.meaning, kanji_dict.kanji, kanji_dict.reading, kanji_dict.grade FROM my_kanji INNER JOIN kanji_dict ON my_kanji.kanji_dict_id=kanji_dict.idKanji_dict"
+    mycursor.execute(sql)
     my_kanji = mycursor.fetchall()
     return render_template("my_kanji.html", nav_my_kanji="active", my_kanji = my_kanji)
 
