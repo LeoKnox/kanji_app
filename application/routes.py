@@ -70,8 +70,9 @@ def about():
 @app.route("/remember_kanji", methods=["POST"])
 def remember_kanji():
     print("********")
-    kn = request.form["kanji_number"]
-    mycursor.execute(INSERT INTO my_kanji (kd) VALUES (%d), kn)
+    kn = {"kn": request.form["kanji_number"]
+    mk = "INSERT INTO my_kanji (kd) VALUES (%d)"
+    mycursor.execute(mk, kn)
     mydb.commit()
     #mysql = connectToMySQL("first_flask")
     #query = "INSERT INTO my_kanji (kanji_dict_id) VALUES (%(mk)d);"
