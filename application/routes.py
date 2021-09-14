@@ -71,13 +71,7 @@ def about():
 def remember_kanji():
     print("********")
     kn = request.form["kanji_number"]
-    mycursor.execute(
-        """
-            INSERT INTO
-                my_kanji (
-                    kd
-                )
-            VALUES (%d)""", (kn))
+    mycursor.execute(INSERT INTO my_kanji (kd) VALUES (%d), (kn))
     mydb.commit()
     #mysql = connectToMySQL("first_flask")
     #query = "INSERT INTO my_kanji (kanji_dict_id) VALUES (%(mk)d);"
