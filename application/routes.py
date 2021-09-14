@@ -70,10 +70,11 @@ def about():
 @app.route("/remember_kanji", methods=["POST"])
 def remember_kanji():
     print("********")
-    kn = {"kn": request.form["kanji_number"]
-    mk = "INSERT INTO my_kanji (kd) VALUES (%d)"
-    mycursor.execute(mk, kn)
-    mydb.commit()
+    kn = request.form["kanji_number"]
+    #mk = "INSERT INTO my_kanji (kd) VALUES (%d)"
+    mycursor.execute("INSERT INTO my_kanji(kanji_dict_id) VALUES (%d), (kn)")
+    mycursor.execute()
+    mycursor.close()
     #mysql = connectToMySQL("first_flask")
     #query = "INSERT INTO my_kanji (kanji_dict_id) VALUES (%(mk)d);"
     #data = {
