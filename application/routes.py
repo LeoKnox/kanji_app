@@ -1,6 +1,7 @@
 from application import app, mydb
 from flask import render_template, redirect, request, session
 from flask_mysqldb import MySQL
+from mysqlconn import connectToMySQL
 import json, random, math
 
 mycursor = mydb.cursor(buffered=True)
