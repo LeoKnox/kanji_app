@@ -1,5 +1,7 @@
 from application import app, mydb
 from flask import render_template, redirect, request, session
+#from flask_mysqldb import MySQL
+#from mysqlconn import connectToMySQL
 import json, random, math
 
 mycursor = mydb.cursor(buffered=True)
@@ -65,16 +67,23 @@ def quiz(timer=7):
 def about():
     return render_template("about.html", nav_about="active")
 
-@app.route("/remember_kanji")
+@app.route("/remember_kanji", methods=["POST"])
 def remember_kanji():
-    print("********")
-    print(form.remember_kanji)
-    mysql = connectToMySQL("first_flask")
-    query = "INSERT INTO my_kanji (kanji_dict_id) VALUES (%(mk)d);"
     data = {
-        "mk": request.form["remember_kanji"]
+        'kanji_num': request.form["kanji_number"]
     }
-    my_kanji = mysql.query_db(query, data)
+    kdata=request.form["kanji_number"]
+    print("********")
+    print(data['knum'])
+    mk = "INSERT INTO my_kanji (kanji_dict_id) VALUES %(kanji_num)d"
+    mycursor.execute(mk, data)
+    mydb.commit()
+    #mysql = connectToMySQL("first_flask")
+    #query = "INSERT INTO my_kanji (kanji_dict_id) VALUES (%(mk)d);"
+    #data = {
+    #    "mk": request.form["kanji_number"]
+    #}
+    #my_kanji = mycursor.query_db(query, data)
     return render_template("about.html", nav_about="active")
 
 @app.route("/my_kanji")
