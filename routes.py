@@ -89,7 +89,7 @@ def my_kanji():
 @app.route("/my_kanji_delete/<kanji_id>")
 def my_kanji_delete(kanji_id):
     print("delete kanji" + str(kanji_id))
-    return redirect("my_kanji")
+    return redirect("/my_kanji")
 
 @app.route("/test")
 def test():
