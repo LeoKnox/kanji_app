@@ -19,7 +19,8 @@ def index():
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
 @app.route("/practice",methods=["GET"])
-def practice():
+@app.route("/practice/<kanji_num>")
+def practice(kanji_num = 0):
     if 'grades' in session:
         grades = session['grades']
     else:
@@ -31,7 +32,7 @@ def practice():
     mycursor.execute(b)
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
-    introkanji = mykanji[0]
+    introkanji = mykanji[int(kanji_num)]
     return render_template("practice.html", nav_practice="active", mykanji=jkanji, introkanji=introkanji)
 
 @app.route("/practice", methods=["POST"])
