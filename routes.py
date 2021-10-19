@@ -86,7 +86,7 @@ def my_kanji():
     my_kanji = mycursor.fetchall()
     return render_template("my_kanji.html", nav_my_kanji="active", my_kanji = my_kanji)
 
-@app.route("/my_kanji_delete/<int:kanji_id>")
+@app.route("/my_kanji_delete/<kanji_id>")
 def my_kanji_delete(kanji_id):
     print("delete kanji" + str(kanji_id))
     return redirect("my_kanji")
