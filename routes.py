@@ -89,7 +89,7 @@ def my_kanji():
 @app.route("/my_kanji_delete/<kanji_id>")
 def my_kanji_delete(kanji_id):
     print("delete kanji" + str(kanji_id))
-    sql = "DELETE FROM my_kanji WHERE id = int(kanji_id)"
+    sql = "DELETE FROM my_kanji WHERE kanji_dict_id = kanji_id"
     mycursor.execute(sql)
     mydb.commit()
     return redirect("/my_kanji")
