@@ -8,6 +8,7 @@
             <th>Kanji Meaning</th>
             <th>Kanji Reading</th>
             <th>Kanji Grade</th>
+            <th>Delete</th>
         </tr>
     {% for kanji in my_kanji %}
         <tr>
@@ -15,6 +16,7 @@
             <td>{{ kanji[1] }}</td>
             <td>{{ kanji[3] }}</td>
             <td>{{ kanji[4] }}</td>
+            <td><button><a href="{{ url_for('my_kanji_delete')}}, {{ kanji_id = kanji[0] }}">Delete {{ kanji[0] }}</a></button></td>
         </tr>
     {% endfor %}
     </table>
