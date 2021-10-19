@@ -77,7 +77,7 @@ def remember_kanji():
     mk = ("INSERT INTO my_kanji (kanji_dict_id) VALUES (%s)" %(kdata))
     mycursor.execute(mk)
     mydb.commit()
-    return redirect("/practice")
+    return redirect("/practice/", kanji_number = kanji_number)
 
 @app.route("/my_kanji")
 def my_kanji():
@@ -86,6 +86,10 @@ def my_kanji():
     my_kanji = mycursor.fetchall()
     return render_template("my_kanji.html", nav_my_kanji="active", my_kanji = my_kanji)
 
+@app.route("/my_kanji_delete")
+def my_kanji_delete():
+    print("delete kanji")
+    return redirect("my_kanji")
 @app.route("/test")
 def test():
     x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
