@@ -73,19 +73,10 @@ def remember_kanji():
         'kanji_num': request.form["kanji_number"]
     }
     kdata=request.form["kanji_number"]
-    print("********")
-    print(kdata)
     mk = ("INSERT INTO my_kanji (kanji_dict_id) VALUES (%s)" %(kdata))
     mycursor.execute(mk)
-    #mycursor.execute("INSERT INTO kanji_app_db.my_kanji(kanji_dict_id) VALUES (%d)", kdata)
     mydb.commit()
-    #mysql = connectToMySQL("first_flask")
-    #query = "INSERT INTO my_kanji (kanji_dict_id) VALUES (%(mk)d);"
-    #data = {
-    #    "mk": request.form["kanji_number"]
-    #}
-    #my_kanji = mycursor.query_db(query, data)
-    return render_template("about.html", nav_about="active")
+    return redirect("/practice")
 
 @app.route("/my_kanji")
 def my_kanji():
