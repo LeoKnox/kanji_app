@@ -260,3 +260,7 @@ h1 {
     font-size: .8em;
     color: blue;
 }
+
+.my_kanji_delete {
+    background: red;
+}
