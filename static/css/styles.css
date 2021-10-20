@@ -262,8 +262,13 @@ h1 {
 }
 
 .my_kanji_delete {
-    background: red;
+    background: darkred;
     font-size: .8em;
     border-radius: 5px;
-    box-shadow: 3px darkred;
+    box-shadow: 3px 3px black;
+}
+
+.my_kanji_delete a {
+    text-decoration: none;
+    color: white;
 }
