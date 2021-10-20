@@ -263,4 +263,7 @@ h1 {
 
 .my_kanji_delete {
     background: red;
+    font-size: .8em;
+    border-radius: 5px;
+    box-shadow: 3px darkred;
 }
