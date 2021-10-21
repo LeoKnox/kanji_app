@@ -21,11 +21,15 @@ def index():
 @app.route("/practice",methods=["GET"])
 @app.route("/practice/<kanji_num>")
 def practice(kanji_num = 0):
+    db_test = False
     if 'grades' in session:
         grades = session['grades']
     else:
         grades=[1]
-    b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
+    if db_test:
+        b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
+    else:
+        b = "SELECT * FROM kanji_app_db.my_kanji WHERE "
     for i in grades:
         b += "grade = " + str(i) + " OR "
     b = b[:-3]  #deletes extra "OR" from end of query
