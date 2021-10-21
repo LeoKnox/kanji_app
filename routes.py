@@ -29,7 +29,8 @@ def practice(kanji_num = 0):
     if db_test:
         b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     else:
-        b = "SELECT * FROM kanji_app_db.my_kanji WHERE "
+        #b = "SELECT * FROM kanji_app_db.my_kanji WHERE "
+        b = "SELECT * FROM my_kanji mk JOIN kanji_dict kd ON mk.kanji_dict_id = kd.idkanji_dict WHERE "
     for i in grades:
         b += "grade = " + str(i) + " OR "
     b = b[:-3]  #deletes extra "OR" from end of query
