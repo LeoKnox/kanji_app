@@ -28,7 +28,7 @@ def practice(kanji_num = 0):
     b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     for i in grades:
         b += "grade = " + str(i) + " OR "
-    b = b[:-3]
+    b = b[:-3]  #deletes extra "OR" from end of query
     mycursor.execute(b)
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
