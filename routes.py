@@ -30,7 +30,7 @@ def practice(kanji_num = 0):
         b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     else:
         #b = "SELECT * FROM kanji_app_db.my_kanji WHERE "
-        b = "SELECT * FROM my_kanji mk JOIN kanji_dict kd ON mk.kanji_dict_id = kd.idkanji_dict WHERE "
+        b = "SELECT idkanji_dict, kanji, strokes, meaning, pronounciation, reading, grade FROM my_kanji mk JOIN kanji_dict kd ON mk.kanji_dict_id = kd.idkanji_dict WHERE "
     for i in grades:
         b += "grade = " + str(i) + " OR "
     b = b[:-3]  #deletes extra "OR" from end of query
