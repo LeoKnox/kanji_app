@@ -18,7 +18,7 @@ def index():
         session['grades'] = request.form.getlist('grades')
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
-@app.route("/practice",methods=["GET"])
+@app.route("/practice",methods=["GET", "POST"])
 @app.route("/practice/<kanji_num>")
 def practice(kanji_num = 0):
     db_test = False
@@ -33,6 +33,8 @@ def practice(kanji_num = 0):
     for i in grades:
         b += "grade = " + str(i) + " OR "
     b = b[:-3]  #deletes extra "OR" from end of query
+    if request.method == 'POST':
+        print(request.form["kanji_db"])
     mycursor.execute(b)
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
