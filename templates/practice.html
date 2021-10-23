@@ -15,7 +15,7 @@
             <li class="liButton">
                 Database
                 <select name="kanji_db" id="kanji_db">
-                    <option>Grade</option>
+                    <option>Grade {% session.update({'db': grade}) %}</option>
                     <option>My Kanji</option>
                 </select>
             </li>
