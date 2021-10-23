@@ -29,7 +29,6 @@ def practice(kanji_num = 0):
     if db_test:
         b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     else:
-        #b = "SELECT * FROM kanji_app_db.my_kanji WHERE "
         b = "SELECT idkanji_dict, kanji, strokes, meaning, pronounciation, reading, grade FROM my_kanji mk JOIN kanji_dict kd ON mk.kanji_dict_id = kd.idkanji_dict WHERE "
     for i in grades:
         b += "grade = " + str(i) + " OR "
@@ -37,10 +36,6 @@ def practice(kanji_num = 0):
     mycursor.execute(b)
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
-    for jk in jkanji:
-        print(jk)
-        #jkanji[jk].pop(0)
-    print (jkanji)
     introkanji = mykanji[int(kanji_num)]
     return render_template("practice.html", nav_practice="active", mykanji=jkanji, introkanji=introkanji)
 
