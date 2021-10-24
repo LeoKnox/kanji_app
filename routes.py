@@ -99,9 +99,11 @@ def my_kanji_delete(kanji_id):
     mydb.commit()
     return redirect("/my_kanji")
 
-@app.route("/test")
+@app.route("/test/")
 def test():
-    return render_template("test.html")
+    if (request.method == "POST"):
+        print("test")
+    return render_template("test.html", nav_my_kanji="active")
 
 @app.route("/linked")
 def linked():
