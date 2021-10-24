@@ -102,8 +102,10 @@ def my_kanji_delete(kanji_id):
 @app.route("/test", methods=["POST"])
 def test():
     print("POST")
+    if 'database' not in session:
+        session["database"] = "my_kanji"
     if (request.method == "POST"):
-        if (database not in session) or (session["database"] == "kanji_dict"):
+        if session["database"] == "kanji_dict":
             session["database"] = "my_kanji"
         else:
             session["database"] = "kanji_dict"
