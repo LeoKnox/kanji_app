@@ -99,12 +99,15 @@ def my_kanji_delete(kanji_id):
     mydb.commit()
     return redirect("/my_kanji")
 
-@app.route("/test/", methods=["GET", "POST"])
+@app.route("/test", methods=["POST"])
 def test():
     print("POST")
     if (request.method == "POST"):
-        print("test")
-    return render_template("test.html", nav_my_kanji="active")
+        if (database not in session) or (session["database"] == "kanji_dict"):
+            session["database"] = "my_kanji"
+        else:
+            session["database"] = "kanji_dict"
+    return render_template("test.html")
 
 @app.route("/linked")
 def linked():
