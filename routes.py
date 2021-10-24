@@ -21,12 +21,14 @@ def index():
 @app.route("/practice",methods=["GET", "POST"])
 @app.route("/practice/<kanji_num>")
 def practice(kanji_num = 0):
-    db_test = False
+    db_test = session['database']
+    print('******')
+    print(db_test)
     if 'grades' in session:
         grades = session['grades']
     else:
         grades=[1]
-    if db_test:
+    if db_test == 'kanji_dict':
         b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     else:
         b = "SELECT idkanji_dict, kanji, strokes, meaning, pronounciation, reading, grade FROM my_kanji mk JOIN kanji_dict kd ON mk.kanji_dict_id = kd.idkanji_dict WHERE "
@@ -109,7 +111,7 @@ def test():
             session["database"] = "my_kanji"
         else:
             session["database"] = "kanji_dict"
-    return render_template("test.html")
+    return redirect('/practice')
 
 @app.route("/linked")
 def linked():
