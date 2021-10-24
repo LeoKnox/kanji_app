@@ -101,19 +101,7 @@ def my_kanji_delete(kanji_id):
 
 @app.route("/test")
 def test():
-    x = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
-    if 'grades' in session:
-        grades = session['grades']
-    else:
-        grades=[1]
-    b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
-    for i in test_list:
-        b += "grade = " + str(i) + " OR "
-    b = b[:-3]
-    b += "ORDER BY RAND() LIMIT 1;"
-    mycursor.execute(b)
-    test_data = mycursor.fetchall()
-    return render_template("test.html", test_data=test_data, grades = grades)
+    return render_template("test.html")
 
 @app.route("/linked")
 def linked():
