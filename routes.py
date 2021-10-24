@@ -102,11 +102,11 @@ def my_kanji_delete(kanji_id):
 @app.route("/test/")
 def test():
     if (request.method == "POST"):
-        if session["database"] == "kanji_dict":
-            session["database"] = "my_kanji"
-        else:
-            session["database"] = "kanji_dict"
         print(session["database"])
+    if (session["database"] == "kanji_dict"):
+        session["database"] = "my_kanji"
+    else:
+        session["database"] = "kanji_dict"
     return render_template("test.html", nav_my_kanji="active")
 
 @app.route("/linked")
