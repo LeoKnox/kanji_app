@@ -33,8 +33,6 @@ def practice(kanji_num = 0):
     for i in grades:
         b += "grade = " + str(i) + " OR "
     b = b[:-3]  #deletes extra "OR" from end of query
-    if request.method == 'POST':
-        print(request.form["kanji_db"])
     mycursor.execute(b)
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
