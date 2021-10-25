@@ -41,12 +41,6 @@ def practice(kanji_num = 0):
     introkanji = mykanji[int(kanji_num)]
     return render_template("practice.html", nav_practice="active", mykanji=jkanji, introkanji=introkanji)
 
-@app.route("/practice", methods=["POST"])
-def add_kanji_to_db():
-    #print(session["kanji_number"])
-    print(request.form["kanji_number"])
-    return redirect("/practice")
-
 @app.route("/quiz")
 @app.route("/quiz/<timer>")
 def quiz(timer=7):
@@ -61,7 +55,6 @@ def quiz(timer=7):
         if i != grades[len(grades)-1]:
             newsql += " OR "
     x = newsql.replace("*", "count(*)")
-    print(x)
     mycursor.execute(x)
     quiz_kanji = mycursor.fetchone()
     kanji_id = math.floor(random.random()*quiz_kanji[0])
