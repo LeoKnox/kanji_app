@@ -28,7 +28,7 @@ def practice(kanji_num = 0):
         grades = session['grades']
     else:
         grades=[1]
-    if db_test == 'kanji_dict':
+    if db_test == 'kanji':
         b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     else:
         b = "SELECT idkanji_dict, kanji, strokes, meaning, pronounciation, reading, grade FROM my_kanji mk JOIN kanji_dict kd ON mk.kanji_dict_id = kd.idkanji_dict WHERE "
@@ -105,12 +105,12 @@ def my_kanji_delete(kanji_id):
 def test():
     print("POST")
     if 'database' not in session:
-        session["database"] = "my_kanji"
+        session["database"] = "my kanji"
     if (request.method == "POST"):
-        if session["database"] == "kanji_dict":
-            session["database"] = "my_kanji"
+        if session["database"] == "kanji":
+            session["database"] = "my kanji"
         else:
-            session["database"] = "kanji_dict"
+            session["database"] = "kanji"
     return redirect('/practice')
 
 @app.route("/linked")
