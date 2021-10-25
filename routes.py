@@ -99,8 +99,8 @@ def my_kanji_delete(kanji_id):
     mydb.commit()
     return redirect("/my_kanji")
 
-@app.route("/test", methods=["POST"])
-def test():
+@app.route("/change_db", methods=["POST"])
+def change_db():
     print("POST")
     if 'database' not in session:
         session["database"] = "my kanji"
