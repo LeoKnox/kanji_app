@@ -22,8 +22,6 @@ def index():
 @app.route("/practice/<kanji_num>")
 def practice(kanji_num = 0):
     db_test = session['database']
-    print('******')
-    print(db_test)
     if 'grades' in session:
         grades = session['grades']
     else:
