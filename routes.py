@@ -75,7 +75,7 @@ def remember_kanji():
     mk = ("INSERT INTO my_kanji (kanji_dict_id) VALUES (%s)" %(kdata))
     mycursor.execute(mk)
     mydb.commit()
-    return redirect("/practice/", kanji_number = kanji_number)
+    return redirect("/practice/", kanji_number = data['kanji_num'])
 
 @app.route("/my_kanji")
 def my_kanji():
