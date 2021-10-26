@@ -70,12 +70,12 @@ def remember_kanji():
     data = {
         'kanji_num': request.form["kanji_number"]
     }
-    print(data)
+    print(data['kanji_num'])
     kdata=request.form["kanji_number"]
     mk = ("INSERT INTO my_kanji (kanji_dict_id) VALUES (%s)" %(kdata))
     mycursor.execute(mk)
     mydb.commit()
-    return redirect("/practice/", kanji_number = data['kanji_num'])
+    return redirect("/practice/", int(data['kanji_num']))
 
 @app.route("/my_kanji")
 def my_kanji():
