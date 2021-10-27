@@ -10,7 +10,7 @@
             <li class="liButton"><button onclick="clearDrawing()">Clear</button></li>
             <form action="/remember_kanji" method="POST">
                 <input type="hidden" id="kanji_number" name="kanji_number" value={{introkanji[0]}}>
-                <li class="liButton"><a href="{{ url_for('remember_kanji')}}" class="practice_a"><button id="remember_kanji">Remember {{introkanji[0]}}</button></a></li>
+                <li class="liButton"><a href="{{ url_for('remember_kanji')}}" class="practice_a"><button id="remember_kanji">Remember {{mykanji[2]}}</button></a></li>
             </form>
             <form action="/change_db" method="POST">
                 <li class="liButton"><a href="{{ url_for('change_db')}}"><button>Database:<br>{{ session['database'] }}</button></a></li>
