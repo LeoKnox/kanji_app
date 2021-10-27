@@ -1,5 +1,6 @@
 async function nextKanji(x, y) {
     y++;
+    document.geteElementById("test_practice").value = x;
     if (await y == x.length) {
         y = 0;
     };

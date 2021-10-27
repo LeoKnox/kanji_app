@@ -36,6 +36,8 @@ def practice(kanji_num = 0):
     mycursor.execute(b)
     mykanji = mycursor.fetchall()
     jkanji = json.dumps(mykanji)
+    print("*********")
+    print(kanji_num)
     introkanji = mykanji[int(kanji_num)]
     return render_template("practice.html", nav_practice="active", mykanji=jkanji, introkanji=introkanji)
 
