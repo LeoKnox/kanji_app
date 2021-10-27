@@ -24,6 +24,13 @@ table {
     font-size: 2em;
 }
 
+.my_kanji_header {
+    color: rgba(30, 83, 255, 0.685);
+    border: 2px solid goldenrod;
+    background-color: palegoldenrod;
+    padding: 1px 3px;
+}
+
 .nav_ul {
     list-style-type: none;
     margin: 0;
@@ -266,6 +273,7 @@ h1 {
     font-size: .8em;
     border-radius: 5px;
     box-shadow: 3px 3px black;
+    
 }
 
 .my_kanji_delete a {
