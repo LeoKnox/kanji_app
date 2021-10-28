@@ -1,11 +1,14 @@
 async function nextKanji(x, y) {
+    console.log(y);
     y++;
+    console.log(y);
     if (await y == x.length) {
         y = 0;
     };
     document.getElementById("next_button").value = y;
     document.getElementById("next_button").innerHTML = y;
     document.getElementById("kanji_number").value = x[y][0];
+    console.log(x[y][0]);
     document.getElementById("display").innerHTML = x[y][1];
     document.getElementById("test_practice").innerHTML = x[y][0];
     document.getElementById("kanji_row").innerHTML = "\
