@@ -6,8 +6,8 @@ async function nextKanji(x, y) {
     document.getElementById("next_button").value = y;
     document.getElementById("next_button").innerHTML = y;
     document.getElementById("kanji_number").value = y;
-    document.getElementById("display").innerHTML = x[y][1]-y;
-    document.getElementById("test_practice").innerHTML = x[y][0];
+    document.getElementById("display").innerHTML = x[y][1];
+    document.getElementById("test_practice").innerHTML = x[y][0]-y;
     document.getElementById("kanji_row").innerHTML = "\
         <td>"+x[y][1]+"</td>\
         <td>"+x[y][3]+"</td>\
