@@ -72,6 +72,7 @@ def remember_kanji():
     data = {
         'kanji_num': request.form["kanji_number"]
     }
+    print("!!!!!!!!!")
     print(data['kanji_num'])
     kdata=request.form["kanji_number"]
     mk = ("INSERT INTO my_kanji (kanji_dict_id) VALUES (%s)" %(kdata))
