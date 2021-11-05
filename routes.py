@@ -26,6 +26,7 @@ def practice(kanji_num = 0):
         grades = session['grades']
     else:
         grades=[1]
+        session['offset'] = 0
     if db_test == 'kanji':
         b = "SELECT * FROM kanji_app_db.kanji_dict WHERE "
     else:
