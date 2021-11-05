@@ -74,6 +74,7 @@ def remember_kanji():
     }
     print("!!!!!!!!!")
     print(data['kanji_num'])
+    print(session.offset)
     kdata=request.form["kanji_number"]
     mk = ("INSERT INTO my_kanji (kanji_dict_id) VALUES (%s)" %(kdata))
     mycursor.execute(mk)

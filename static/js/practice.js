@@ -5,6 +5,7 @@ async function nextKanji(x, y) {
     };
     document.getElementById("next_button").value = y;
     document.getElementById("next_button").innerHTML = y;
+    sessionStrorage.offset = y;
     document.getElementById("kanji_number").value = x[y][0];
     document.getElementById("display").innerHTML = x[y][1];
     document.getElementById("test_practice").innerHTML = x[y][0]-y;
