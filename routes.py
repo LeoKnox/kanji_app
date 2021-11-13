@@ -10,12 +10,14 @@ mc = mydb.cursor()
 @app.route("/")
 @app.route("/index", methods=["GET", "POST"])
 def index():
+    print("accessing index");
     sql = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
     kanjinumber = sum(i[1] for i in myresult)
     if request.method == 'POST':
         session['grades'] = request.form.getlist('grades')
+    print("accessing index");
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
 @app.route("/practice",methods=["GET", "POST"])
@@ -75,7 +77,7 @@ def remember_kanji():
     }
     print("!!!!!!!!!")
     print(data['kanji_num'])
-    print(session.offset)
+    #print(session.offset)
     kdata=request.form["kanji_number"]
     mk = ("INSERT INTO my_kanji (kanji_dict_id) VALUES (%s)" %(kdata))
     mycursor.execute(mk)
