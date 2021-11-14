@@ -16,6 +16,7 @@ def index():
     myresult = mycursor.fetchall()
     kanjinumber = sum(i[1] for i in myresult)
     if request.method == 'POST':
+        print("acessing post")
         if session['grades'] != null:
             session['grades'] = request.form.getlist('grades')
         else:
