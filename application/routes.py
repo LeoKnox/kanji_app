@@ -16,7 +16,10 @@ def index():
     myresult = mycursor.fetchall()
     kanjinumber = sum(i[1] for i in myresult)
     if request.method == 'POST':
-        session['grades'] = request.form.getlist('grades')
+        if session['grades'] != null:
+            session['grades'] = request.form.getlist('grades')
+        else:
+            session['grades'] = 1
     print("accessing index");
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
