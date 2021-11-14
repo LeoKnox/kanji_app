@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>My Kanji to Practice</h1>
+    <table>
+        <tr>
+            <th class="my_kanji_header">Kanji</th>
+            <th class="my_kanji_header">Kanji Meaning</th>
+            <th class="my_kanji_header">Kanji Reading</th>
+            <th class="my_kanji_header">Kanji Grade</th>
+            <th class="my_kanji_header">Delete</th>
+        </tr>
+    {% for kanji in my_kanji %}
+        <tr>
+            <td>{{ kanji[2] }}</td>
+            <td>{{ kanji[1] }}</td>
+            <td>{{ kanji[3] }}</td>
+            <td>{{ kanji[4] }}</td>
+            <td><button class="my_kanji_delete"><a href="{{ url_for('my_kanji_delete', kanji_id=kanji[0]) }}">Delete</a></button></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
