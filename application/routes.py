@@ -17,10 +17,12 @@ def index():
     kanjinumber = sum(i[1] for i in myresult)
     if request.method == 'POST':
         print("acessing post")
-        if session['grades'] != null:
-            session['grades'] = request.form.getlist('grades')
-        else:
+        if session['grades'] == None:
             session['grades'] = 1
+            print("session none")
+        else:
+            session['grades'] = request.form.getlist('grades')
+            print("session one")
     print("accessing index");
     return render_template("index.html", nav_index="active", myresult=myresult, kanjinumber=kanjinumber)
 
