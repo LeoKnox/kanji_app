@@ -10,8 +10,8 @@ mc = mydb.cursor()
 @app.route("/")
 @app.route("/index", methods=["GET", "POST"])
 def index():
-    print("accessing index");
-    print(session)
+    print("accessing index")
+    print(session['grades'])
     sql = "SELECT DISTINCT grade, COUNT(*) AS total FROM kanji_app_db.kanji_dict GROUP BY grade"
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
